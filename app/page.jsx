@@ -11,7 +11,7 @@ export default function Home() {
           <div className="text-center xl:text-left order-2 xl:order-none">
             <span className="text-xl">Software Developer</span>
             <h1 className="h1 mb-6">
-              Hello I'm <br/> <span className="text-accent-DEFUALT">Nguyen Anh Tuan</span>
+              Hello I'm <br/> <span className="text-accent-DEFAULT">Nguyen Anh Tuan</span>
             </h1>
             <p className="max-w-[500px] mb-9 text-white/80">
             A dedicated Software Engineer with expertise in developing scalable applications, integrating APIs, and solving complex technical challenges. Passionate about leveraging technology to create efficient and innovative solutions.
@@ -20,7 +20,7 @@ export default function Home() {
               <Button 
                variant="outline" 
                size="lg" 
-               className="text-accent-DEFUALT uppercase flex items-center gap-2"
+               className="text-accent-DEFAULT uppercase flex items-center gap-2"
               >
                 <span>Download CV</span>
                 <FiDownload className="text-xl"/>

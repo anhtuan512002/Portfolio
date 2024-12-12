@@ -35,6 +35,7 @@ const about={
             fieldvalue:"Vietnam, English",
         },
         
+        
     ],
 }
 
@@ -43,6 +44,16 @@ const experience={
     title:"My experience",
     description:"I have six months of experience as a Backend Developer Intern at Fintech Draco Corporation, where I developed ERP software using Python and JavaScript on the Frappe framework. My responsibilities included implementing custom features, building APIs, and integrating payment gateways like ZaloPay, VNPay, and MoMo for secure e-commerce transactions. Additionally, I resolved technical issues, validated data, and customized user interfaces to enhance system functionality and user experience.",
     items:[
+        {
+            company:"Fintech Draco Corporation",
+            position:"Back-End Developer Intern",
+            duration:"4/2024 - 10/2024",
+        },
+        {
+            company:"Fintech Draco Corporation",
+            position:"Back-End Developer Intern",
+            duration:"4/2024 - 10/2024",
+        },
         {
             company:"Fintech Draco Corporation",
             position:"Back-End Developer Intern",

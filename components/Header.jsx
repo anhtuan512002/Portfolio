@@ -4,7 +4,9 @@ import Nav from "./Nav";
 import MobileNav from "./MobileNav";
 
 const Header = () => {
-    return <header className="py-8 xl:py-12 text-white bg-pink-50/20">
+    return <header className="py-8 xl:py-12 text-white bg-pink-50/20"
+    style={{ backgroundColor: '#1c1c22' }}
+    >
         <div className="container mx-auto flex justify-between items-center">
             {/*logo*/}
             <Link href="/">
@@ -12,9 +14,7 @@ const Header = () => {
                     Tuan <span className="text-accent-hover">Nguyen</span>
                 </h1>
             </Link>
-
             {/*desktop nav*/}
-
             <div className="hidden xl:flex items-center gap-8">
                 <Nav/>
                 <Link href="/contact">
