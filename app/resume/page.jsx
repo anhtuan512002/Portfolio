@@ -49,16 +49,6 @@ const experience={
             position:"Back-End Developer Intern",
             duration:"4/2024 - 10/2024",
         },
-        {
-            company:"Fintech Draco Corporation",
-            position:"Back-End Developer Intern",
-            duration:"4/2024 - 10/2024",
-        },
-        {
-            company:"Fintech Draco Corporation",
-            position:"Back-End Developer Intern",
-            duration:"4/2024 - 10/2024",
-        }
     ],
 }
 
@@ -163,8 +153,9 @@ const Resume = () =>{
                     <TabsTrigger value="skills">Skills</TabsTrigger>
                     <TabsTrigger value="about">About me</TabsTrigger>
                 </TabsList>
-                {/* experience */}
+                
                 <div className='min-h-[70vh] w-full'>
+                    {/* experience */}
                     <TabsContent value="experience" className="w-full">
                         <div className='flex flex-col gap-[30px] text-center xl:text-left'>
                             <h3 className='text-4xl font-bold'>{experience.title}</h3>

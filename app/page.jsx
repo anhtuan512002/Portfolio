@@ -1,9 +1,16 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import Photo from "@/components/ui/Photo";
 import Social from "@/components/ui/Social";
 import Stats from "@/components/ui/Stats";
 import { FiDownload, FileDownload } from "react-icons/fi";
 export default function Home() {
+  const handleDownloadCV = () => {
+    const link = document.createElement("a");
+    link.href = "/Resume/Resume.pdf";
+    link.download = "CV_Nguyen_Anh_Tuan.pdf";
+    link.click();
+  };  
   return (
     <section className="h-full">
       <div className="container mx-auto">
@@ -18,9 +25,10 @@ export default function Home() {
             </p>
             <div className="flex flex-col xl:flex-row items-center gap-8">
               <Button 
-               variant="outline" 
-               size="lg" 
-               className="text-accent-DEFAULT uppercase flex items-center gap-2"
+                variant="outline" 
+                size="lg" 
+                className="text-accent-DEFAULT uppercase flex items-center gap-2"
+                onClick={handleDownloadCV}
               >
                 <span>Download CV</span>
                 <FiDownload className="text-xl"/>
