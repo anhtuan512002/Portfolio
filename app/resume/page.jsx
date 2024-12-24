@@ -55,7 +55,7 @@ const experience={
 const education={
     icon:"/public/Image/icons/cap.svg",
     title:"My education",
-    description:"fajslfjka;lsjdf;lajksd;fa;sdjf",
+    description:"Graduated with a Bachelor of Computer Science from the University of Information Technology - Vietnam National University, Ho Chi Minh City, in 2024. Proficient in Python, JavaScript, Java, and C#, with experience in Node.js, React.js, and managing databases like MySQL, PostgreSQL, and MongoDB. Skilled in modern technologies such as Docker and AWS, with a strong foundation in Computer Science, including Data Structures, Algorithms, NLP, Computer Vision, and Software Engineering.",
     items:[
         {
             instituation:"University of Information Technology - VNUHCM",

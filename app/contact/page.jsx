@@ -48,7 +48,7 @@ const Contact = () =>{
                         <p className="text-white/60">
                         Dear HR or visitor, thank you for taking the time to visit my contact page. Feel free to reach out with any inquiries or collaboration opportunities. Looking forward to connecting with you!👋
                         </p>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <Input type="firstname" placeholder="Firstname"/>
                             <Input type="lastname" placeholder="Lastname"/>
                             <Input type="email" placeholder="Email address"/>
@@ -71,7 +71,7 @@ const Contact = () =>{
                         <Textarea className="h-[200px]" placeholder="Type your message here."/>
                         <Button size="md" className="max-w-40">
                             Send message
-                        </Button>
+                        </Button> */}
                     </form>
                 </div>
                 <div className="flex-1 flex items-center xl:justify-end order-1 xl:order-none mb-8 xl:mb-0">
