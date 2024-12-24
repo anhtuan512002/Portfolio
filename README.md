@@ -1,5 +1,5 @@
 # Web Portfolio
-This is my personal web portfolio, built with **Next.js**.
+This is my personal web portfolio, built with **Next.js**. I use Vercel to host my website.
 ## Technologies Used
 - **Next.js**: React framework for building server-rendered and static web applications.
 - **React**: JavaScript library for building user interfaces.
