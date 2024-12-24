@@ -12,9 +12,6 @@ This is my personal web portfolio, built with **Next.js**.
 ## Project Structure
 ```plaintext
 ├── components    # Shared components
-├── pages         # Application pages
 ├── public        # Static assets (images, favicon, etc.)
-├── styles        # CSS/Tailwind files
-├── utils         # Utility functions
 └── package.json  # Project dependencies
 ```
