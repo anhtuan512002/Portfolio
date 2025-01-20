@@ -1,6 +1,6 @@
 "use client";
 import {FaHtml5, FaCss3, FaJs, FaReact, FaFigma, FaPython, FaJava,FaAws} from 'react-icons/fa'
-import {SiNextdotjs,SiCplusplus, SiNodedotjs, SiGithub, SiDocker, SiMongodb, SiMysql} from 'react-icons/si'
+import {SiNextdotjs,SiCplusplus, SiNodedotjs, SiGithub, SiDocker, SiMongodb, SiMysql,SiPostgresql} from 'react-icons/si'
 
 const about={
     title:"About me",
@@ -66,68 +66,62 @@ const education={
     ],
 }
 
-const skills={
-    title:"My skills",
-    description:"",
-    skillList:[
+// skills list
+
+const skillList = {
+    title: "My Skills",
+    description: "A categorized list of my technical skills.",
+    categories: [
         {
-            name:"HTML",
-            icon:<FaHtml5/>
+            title: "Frontend Skills",
+            description: "I have developed user interfaces for various projects, including web applications using React and NextJS. These skills enable me to create interactive, user-friendly designs and optimize the user experience for both desktop and mobile platforms.",
+            skillList: [
+                { name: "HTML", icon: <FaHtml5 /> },
+                { name: "CSS", icon: <FaCss3 /> },
+                { name: "JavaScript", icon: <FaJs /> },
+                { name: "React", icon: <FaReact /> },
+                { name: "NextJS", icon: <SiNextdotjs /> }
+            ]
         },
         {
-            name:"CSS",
-            icon:<FaCss3/>
+            title: "Backend Skills",
+            description: "I have built APIs, handled server-side logic, and integrated databases for several projects. These backend skills help me manage data effectively and ensure systems are stable, secure, and scalable.",
+            skillList: [
+                { name: "Python", icon: <FaPython /> },
+                { name: "Node", icon: <SiNodedotjs /> },
+                { name: "Java", icon: <FaJava /> },
+                { name: "C++", icon: <SiCplusplus /> },
+                { name: "Docker", icon: <SiDocker /> }
+            ]
         },
         {
-            name:"Python",
-            icon:<FaPython/>
+            title: "Database Skills",
+            description: "I have worked with relational databases like MySQL and NoSQL databases like MongoDB to store and retrieve data in web applications. These skills enable me to design efficient database schemas and maintain data integrity.",
+            skillList: [
+                { name: "MongoDB", icon: <SiMongodb /> },
+                { name: "MySQL", icon: <SiMysql /> },
+                { name: "PostgreSQL", icon: <SiPostgresql /> }
+            ]
         },
         {
-            name:"C++",
-            icon:<SiCplusplus/>
+            title: "DevOps & Cloud Skills",
+            description: "I have used Docker for deploying containerized applications and gained familiarity with AWS for cloud hosting and service management. These skills help me automate deployments and ensure system reliability in production environments.",
+            skillList: [
+                { name: "Docker", icon: <SiDocker /> },
+                { name: "Cloud AWS", icon: <FaAws /> }
+            ]
         },
         {
-            name:"Java",
-            icon:<FaJava/>
-        },
-        {
-            name:"JavaScript",
-            icon:<FaJs/>
-        },
-        {
-            name:"React",
-            icon:<FaReact/>
-        },
-        {
-            name:"Node",
-            icon:<SiNodedotjs/>
-        },
-        {
-            name:"NextJS",
-            icon:<SiNextdotjs/>
-        },
-        {
-            name:"Docker",
-            icon:<SiDocker/>
-        },
-        {
-            name:"MongoDB",
-            icon:<SiMongodb/>
-        },
-        {
-            name:"Cloud AWS",
-            icon:<FaAws/>
-        },
-        {
-            name:"MySQL",
-            icon:<SiMysql/>
-        },
-        {
-            name:"Github",
-            icon:<SiGithub/>
+            title: "Version Control Skills",
+            description: "I have used GitHub to manage source code, track changes, and collaborate with team members. This skill enables me to work efficiently in team projects and ensure well-organized source code management.",
+            skillList: [
+                { name: "Github", icon: <SiGithub /> }
+            ]
         }
     ]
-}
+};
+
+
 
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs"
 import {Tooltip,TooltipContent,TooltipProvider,TooltipTrigger} from "@/components/ui/tooltip"
@@ -150,7 +144,7 @@ const Resume = () =>{
                 <TabsList className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6">
                     <TabsTrigger value="experience">Experience</TabsTrigger>
                     <TabsTrigger value="education">Education</TabsTrigger>
-                    <TabsTrigger value="skills">Skills</TabsTrigger>
+                    <TabsTrigger value="skillList">Skills</TabsTrigger>
                     <TabsTrigger value="about">About me</TabsTrigger>
                 </TabsList>
                 
@@ -206,32 +200,38 @@ const Resume = () =>{
                         </div>
                     </TabsContent>
                     {/* skills */}
-                    <TabsContent value="skills" className="w-full h-full">
+                    <TabsContent value="skillList" className="w-full h-full">
                         <div className='flex flex-col gap-[30px]'>
-                            <div className='flex flex-col gap-[30px] text-center xl:text-left'>
-                                <h3 className='text-4xl font-bold'>{skills.title}</h3>
-                                <p className='max-w-[600px] text-white/60 mx-auto xl:mx-0'>
-                                    {skills.description}
-                                </p>
-                            </div>
-                            <ul className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px]'>
-                                {skills.skillList.map((skill,index)=>{
-                                    return (<li key={index}>
-                                        <TooltipProvider duration={100}>
-                                            <Tooltip>
-                                                <TooltipTrigger className='w-full h-[150px] bg-[#232329] rounded-xl flex justify-center items-center group'>
-                                                    <div className='text-6xl group-hover:text-accent transition-all duration-300'>
-                                                        {skill.icon}
-                                                    </div>
-                                                </TooltipTrigger>
-                                                <TooltipContent>
-                                                    <p className='capitalize'>{skill.name}</p>                                                    
-                                                </TooltipContent>
-                                            </Tooltip>
-                                        </TooltipProvider>
-                                    </li>)
-                                })}
-                            </ul>
+                            {
+                                skillList.categories.map((category,index)=>{
+                                    return(
+                                        <div key={index} className='flex flex-col gap-[30px] text-center xl:text-left'>
+                                            <h3 className='text-4xl font-bold'>{category.title}</h3>
+                                            <p className='max-w-[600px] text-white/60 mx-auto xl:mx-0'>
+                                                {category.description}
+                                            </p>
+                                            <ul className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px]'>
+                                                {category.skillList.map((skill,index)=>{
+                                                    return (<li key={index}>
+                                                        <TooltipProvider duration={100}>
+                                                            <Tooltip>
+                                                                <TooltipTrigger className='w-full h-[150px] bg-[#232329] rounded-xl flex justify-center items-center group'>
+                                                                    <div className='text-6xl group-hover:text-accent transition-all duration-300'>
+                                                                        {skill.icon}
+                                                                    </div>
+                                                                </TooltipTrigger>
+                                                                <TooltipContent>
+                                                                    <p className='capitalize'>{skill.name}</p>                                                    
+                                                                </TooltipContent>
+                                                            </Tooltip>
+                                                        </TooltipProvider>
+                                                    </li>)
+                                                })}
+                                            </ul>
+                                        </div>
+                                    )
+                                })
+                            }
                         </div>
                     </TabsContent>
                     {/* about me */}
@@ -251,6 +251,7 @@ const Resume = () =>{
                             </ul>
                         </div>
                     </TabsContent>
+
                 </div>
             </Tabs>
         </div>
