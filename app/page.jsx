@@ -3,14 +3,11 @@ import { Button } from "@/components/ui/button";
 import Photo from "@/components/ui/Photo";
 import Social from "@/components/ui/Social";
 import Stats from "@/components/ui/Stats";
-import { FiDownload, FileDownload } from "react-icons/fi";
+import { FiDownload } from "react-icons/fi";
 export default function Home() {
   const handleDownloadCV = () => {
-    const link = document.createElement("a");
-    link.href = "/Resume/Resume.pdf";
-    link.download = "CV_Nguyen_Anh_Tuan.pdf";
-    link.click();
-  };  
+    window.open("https://drive.google.com/drive/folders/17hpkUZbTI16K_zgrA7zk3hEYqJpgjA2S?usp=sharing", "_blank");
+  };
   return (
     <section className="h-full">
       <div className="container mx-auto">
@@ -21,7 +18,7 @@ export default function Home() {
               Hello I'm <br/> <span className="text-accent-DEFAULT">Nguyen Anh Tuan</span>
             </h1>
             <p className="max-w-[500px] mb-9 text-white/80">
-            A dedicated Software Engineer with expertise in developing scalable applications, integrating APIs, and solving complex technical challenges. Passionate about leveraging technology to create efficient and innovative solutions.
+              A dedicated Software Engineer with expertise in developing scalable applications, integrating APIs, and solving complex technical challenges. Passionate about leveraging technology to create efficient and innovative solutions.
             </p>
             <div className="flex flex-col xl:flex-row items-center gap-8">
               <Button 

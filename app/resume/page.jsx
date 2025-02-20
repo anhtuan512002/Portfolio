@@ -1,7 +1,13 @@
 "use client";
 import {FaHtml5, FaCss3, FaJs, FaReact, FaFigma, FaPython, FaJava,FaAws} from 'react-icons/fa'
 import {SiNextdotjs,SiCplusplus, SiNodedotjs, SiGithub, SiDocker, SiMongodb, SiMysql,SiPostgresql} from 'react-icons/si'
+import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs"
+import {Tooltip,TooltipContent,TooltipProvider,TooltipTrigger} from "@/components/ui/tooltip"
+import {motion} from "motion/react"
+import { ScrollArea } from '@radix-ui/react-scroll-area';
+import * as Dialog from "@radix-ui/react-dialog";
 
+// about
 const about={
     title:"About me",
     description:"I am a Computer Science graduate with 6 months of experience as a backend developer in fintech, skilled in Python, JavaScript, and API integration. Passionate about learning and delivering efficient solutions.",
@@ -38,20 +44,45 @@ const about={
         
     ],
 }
-
+// experience
 const experience={
     icon:"/public/Image/icons/badge.svg",
     title:"My experience",
-    description:"I have six months of experience as a Backend Developer Intern at Fintech Draco Corporation, where I developed ERP software using Python and JavaScript on the Frappe framework. My responsibilities included implementing custom features, building APIs, and integrating payment gateways like ZaloPay, VNPay, and MoMo for secure e-commerce transactions. Additionally, I resolved technical issues, validated data, and customized user interfaces to enhance system functionality and user experience.",
-    items:[
+    description:"A summary of my professional background and work experience.",
+    items: [
         {
-            company:"Fintech Draco Corporation",
-            position:"Back-End Developer Intern",
-            duration:"4/2024 - 10/2024",
+            "company": "Hippopenny",
+            "Linkcompany":"https://hippopenny.com/",
+            "position": "Software Developer Intern",
+            "duration": "8/2024 - 1/2025",
+            "workMode": "Remote (United States)",
+            "description": [
+                "8/2024 - 10/2024: Part-time",
+                "11/2024 - 1/2025: Full-time",
+                "Optimized a high-performance backend system using MongoDB, enhancing data retrieval speed and overall system efficiency.",
+                "Designed an AI prompt engineering system to generate intelligent and context-aware responses, improving the automation process.",
+                "Developed AI-powered bots to automate repetitive development tasks, such as code reviews, testing automation, and deployment pipelines.",
+                "Collaborated with cross-functional teams (developers, data scientists, and product managers) to integrate AI-driven solutions, enhancing system functionality across multiple platforms."
+            ]
         },
-    ],
+        {
+            "company": "Fintech Draco Corporation",
+            "Linkcompany":"https://dracorp.com.vn/",
+            "position": "Backend Developer Intern",
+            "duration": "4/2024 - 10/2024",
+            "workMode": "Onsite (HCM City)",
+            "description": [
+                "Developed and maintained enterprise ERP software using Frappe Framework and Python, ensuring system stability and scalability.",
+                "Designed and implemented optimized RESTful APIs with comprehensive documentation for seamless integration.",
+                "Worked closely with Business Analysts to develop custom features tailored to specific business needs.",
+                "Enhanced user experience by building responsive UI components using HTML, CSS, and JavaScript.",
+                "Resolved technical issues, validated data, and optimized database queries to maintain high system performance."
+            ]
+        }
+                
+    ],    
 }
-
+//education
 const education={
     icon:"/public/Image/icons/cap.svg",
     title:"My education",
@@ -59,6 +90,7 @@ const education={
     items:[
         {
             instituation:"University of Information Technology - VNUHCM",
+            website:"https://en.uit.edu.vn/",
             degree:"Computer Science",
             duration:"10/2020 - 6/2024",
         }
@@ -120,13 +152,6 @@ const skillList = {
         }
     ]
 };
-
-
-
-import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs"
-import {Tooltip,TooltipContent,TooltipProvider,TooltipTrigger} from "@/components/ui/tooltip"
-import {motion} from "motion/react"
-import { ScrollArea } from '@radix-ui/react-scroll-area';
 const Resume = () =>{
     return <motion.div
         initial={{ opacity: 0 }}
@@ -159,16 +184,96 @@ const Resume = () =>{
                                     {experience.items.map((item,index)=>
                                     {
                                         return (
-                                        <li key={index}
-                                            className='bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1'
-                                        >
-                                            <span className='text-accent'>{item.duration}</span>
-                                            <h3 className='text-xl max-w-[260px] min-h-[60px] text-center lg:text-left'>{item.position}</h3>
-                                            <div className='flex items-center gap-3'>
-                                                <span className='w-[6px] h-[6px] rounded-full bg-accent'></span>
-                                                <p className='text-white/60'>{item.company}</p>
-                                            </div>
-                                        </li>)
+                                            <li key={index} className="cursor-pointer bg-[#232329] h-[200px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1">
+                                                <Dialog.Root>
+                                                    <Dialog.Trigger asChild>
+                                                        <div className="w-full h-full flex flex-col justify-center items-center lg:items-start gap-1">
+                                                            <span className="text-accent">{item.duration}</span>
+                                                            <h3 className="text-xl max-w-[260px] min-h-[60px] text-center lg:text-left">{item.position}</h3>
+                                            
+                                                            <div className="flex items-center gap-3">
+                                                                <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
+                                                                <TooltipProvider duration={100}>
+                                                                    <Tooltip>
+                                                                        <a href={item.Linkcompany} target="_blank" rel="noopener noreferrer">
+                                                                            <TooltipTrigger className="text-white/60 hover:text-accent focus:text-accent transition-all duration-300">
+                                                                                {item.company}
+                                                                            </TooltipTrigger>
+                                                                        </a>
+                                                                        <TooltipContent>
+                                                                            <p>{item.Linkcompany}</p>
+                                                                        </TooltipContent>
+                                                                    </Tooltip>
+                                                                </TooltipProvider>
+                                                            </div>
+                                            
+                                                            <div className="flex items-center gap-3">
+                                                                <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
+                                                                <p className="text-white/60">{item.workMode}</p>
+                                                            </div>
+                                                        </div>
+                                                    </Dialog.Trigger>
+                                                    {/* Popup (Modal) */}
+                                                    <Dialog.Portal>
+                                                        {/* Background Overlay */}
+                                                        <Dialog.Overlay className="fixed inset-0 bg-black/50 backdrop-blur-sm" />
+
+                                                        {/* Dialog Content */}
+                                                        <Dialog.Content className="fixed top-1/2 left-1/2 w-[90%] max-w-md p-6 bg-[#232329] rounded-xl transform -translate-x-1/2 -translate-y-1/2
+                                                            max-h-[80vh] overflow-y-auto">
+                                                            
+                                                            {/* Tiêu đề với vị trí + Tooltip cho công ty */}
+                                                            <Dialog.Title className="text-accent font-bold flex flex-col items-center text-center">
+                                                                {/* Dòng 1: Tên công ty (to hơn 1.4 lần) */}
+                                                                <TooltipProvider duration={100}>
+                                                                    <Tooltip>
+                                                                        <a href={item.Linkcompany} target="_blank" rel="noopener noreferrer">
+                                                                            <TooltipTrigger className="text-3xl lg:text-3xl font-bold transition-colors duration-300 hover:text-white/80">
+                                                                                {item.company}
+                                                                            </TooltipTrigger>
+                                                                        </a>
+                                                                        <TooltipContent>
+                                                                            <p>{item.Linkcompany}</p>
+                                                                        </TooltipContent>
+                                                                    </Tooltip>
+                                                                </TooltipProvider>
+
+
+                                                                {/* Dòng 2: Vị trí công việc (nhỏ hơn 1.4 lần) */}
+                                                                <span className="text-lg lg:text-xl text-white/80 mt-1 text-center">{item.position}</span>
+                                                            </Dialog.Title>
+
+
+                                                            
+                                                            {/* Thông tin thời gian + hình thức làm việc */}
+                                                            <Dialog.Description className="mt-2 text-white/60 text-sm text-center">
+                                                                {item.duration} - {item.workMode}
+                                                            </Dialog.Description>
+
+
+                                                            {/* Mô tả công việc */}
+                                                            <h4 className="mt-4 text-accent text-lg font-bold">Description</h4>
+                                                            <ul className="mt-3 list-disc list-inside text-white/60 space-y-2">
+                                                                {item.description.map((desc, i) => (
+                                                                    <li key={i} className="leading-relaxed">{desc}</li>
+                                                                ))}
+                                                            </ul>
+
+                                                            {/* Nút đóng */}
+                                                            <Dialog.Close asChild>
+                                                                <button className="mt-4 px-4 py-2 bg-accent text-white rounded-md hover:bg-opacity-80">
+                                                                    Close
+                                                                </button>
+                                                            </Dialog.Close>
+                                                        </Dialog.Content>
+                                                    </Dialog.Portal>
+
+
+
+                                                </Dialog.Root>
+                                            </li>
+                                            
+                                        )
                                     })}
                                 </ul>
                             </ScrollArea>
@@ -191,7 +296,19 @@ const Resume = () =>{
                                             <h3 className='text-xl max-w-[260px] min-h-[60px] text-center lg:text-left'>{item.degree}</h3>
                                             <div className='flex items-center gap-3'>
                                                 <span className='w-[6px] h-[6px] rounded-full bg-accent'></span>
-                                                <p className='text-white/60'>{item.instituation}</p>
+                                                <TooltipProvider duration={100}>
+                                                    <Tooltip>
+                                                        <a href={item.website} target="_blank" rel="noopener noreferrer">
+                                                            <TooltipTrigger className="text-white/60 hover:text-accent focus:text-accent transition-all duration-300">
+                                                                {item.instituation}
+                                                            </TooltipTrigger>
+                                                        </a>
+                                                        <TooltipContent>
+                                                            <p>{item.website}</p>
+                                                        </TooltipContent>
+                                                    </Tooltip>
+                                                </TooltipProvider>
+
                                             </div>
                                         </li>)
                                     })}
