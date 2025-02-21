@@ -184,7 +184,7 @@ const Resume = () =>{
                                     {experience.items.map((item,index)=>
                                     {
                                         return (
-                                            <li key={index} className="cursor-pointer bg-[#232329] h-[200px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1">
+                                            <li key={index} className="cursor-pointer bg-[#232329] h-[200px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1 hover:bg-black/60 transition-all duration-300">
                                                 <Dialog.Root>
                                                     <Dialog.Trigger asChild>
                                                         <div className="w-full h-full flex flex-col justify-center items-center lg:items-start gap-1">
@@ -219,7 +219,7 @@ const Resume = () =>{
                                                         <Dialog.Overlay className="fixed inset-0 bg-black/50 backdrop-blur-sm" />
 
                                                         {/* Dialog Content */}
-                                                        <Dialog.Content className="fixed top-1/2 left-1/2 w-[90%] max-w-md p-6 bg-[#232329] rounded-xl transform -translate-x-1/2 -translate-y-1/2
+                                                        <Dialog.Content className="fixed top-1/2 left-1/2 w-[90%] max-w-lg p-6 bg-[#232329] rounded-xl transform -translate-x-1/2 -translate-y-1/2
                                                             max-h-[80vh] overflow-y-auto">
                                                             
                                                             {/* Tiêu đề với vị trí + Tooltip cho công ty */}
